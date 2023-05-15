@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:p="http://www.springframework.org/schema/p"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- Starting of bean  -->
+
+<bean class="com.springcore.ref.class2" name="refclass2" p:b="121"/>
+
+<bean class="com.springcore.ref.class1" name="refclass1">
+	<property name="a" value="782"/>
+	<property name="cl2" ref="refclass2"/>
+</bean>
+
+</beans>
