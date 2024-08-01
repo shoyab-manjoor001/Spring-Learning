@@ -10,6 +10,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,11 +55,24 @@ public class BookController {
     
     // Adding a Single Book at a time... Create Operation... 
     
+//    @PostMapping
+//    public void addBook(@RequestBody Book book)
+//    {
+//    	bookService.createOrUpdateBook(book);
+//    }
+    
     @PostMapping
-    public void addBook(@RequestBody Book book)
+    public ResponseEntity<Book> addBook(@RequestBody Book book)
     {
-    	bookService.createOrUpdateBook(book);
+    	Book b = bookService.createOrUpdateBook(book);
+    	if(b==null)
+    	{
+    		return ResponseEntity.status(HttpStatus.BAD_GATEWAY).build();
+    	}
+    	
+		return ResponseEntity.status(HttpStatus.CREATED).body(b);
     }
+    
     
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book book)
