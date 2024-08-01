@@ -4,9 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import com.api.book.bootrestbook.modals.Book;
-import com.api.book.bootrestbook.services.BookService;
-
 @SpringBootApplication
 public class BootrestbookApplication {
 

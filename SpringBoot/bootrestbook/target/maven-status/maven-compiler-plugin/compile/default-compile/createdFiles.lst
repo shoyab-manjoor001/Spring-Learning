@@ -1,0 +1,7 @@
+com\api\book\bootrestbook\modals\Book.class
+com\api\book\bootrestbook\services\BookServiceImpl.class
+com\api\book\bootrestbook\controllers\BookController.class
+com\api\book\bootrestbook\modals\Author.class
+com\api\book\bootrestbook\dao\BookRepository.class
+com\api\book\bootrestbook\BootrestbookApplication.class
+com\api\book\bootrestbook\services\BookService.class

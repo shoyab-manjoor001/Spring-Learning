@@ -8,7 +8,7 @@ import com.api.book.bootrestbook.modals.Book;
 
 public interface BookRepository extends CrudRepository<Book, Integer>{
 	
-	public List<Book> findByAuthor(String name);
+	//public List<Book> findByAuthor(String name);
 	public List<Book> findByBookName(String name);
 
 }

@@ -40,10 +40,10 @@ public class BookServiceImpl implements BookService {
 		bookRepository.deleteById(bookId);
 	}
 
-	@Override
-	public List<Book> getBookByAuthor(String name) {
-		return bookRepository.findByAuthor(name);
-	}
+//	@Override
+//	public List<Book> getBookByAuthor(String name) {
+//		return bookRepository.findByAuthor(name);
+//	}
 
 	@Override
 	public  List<Book> getBooksByName(String name) {

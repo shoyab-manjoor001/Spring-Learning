@@ -13,6 +13,6 @@ public interface BookService {
 	public Iterable<Book> getBooks();
 	public void deleteBook(int id);
 	public Book createOrUpdateBook(Book book);	
-	public List<Book> getBookByAuthor(String name);
+	//public List<Book> getBookByAuthor(String name);
 	public List<Book> getBooksByName(String name);
 }

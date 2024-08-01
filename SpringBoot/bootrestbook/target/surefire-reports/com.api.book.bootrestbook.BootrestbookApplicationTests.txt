@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.api.book.bootrestbook.BootrestbookApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.76 s -- in com.api.book.bootrestbook.BootrestbookApplicationTests
