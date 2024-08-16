@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class FirstController {
 
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String homeHandler() {
+		return "home";
+	}
+
 	@RequestMapping(value = "/about", method = RequestMethod.GET)
 	public String aboutMethod(Model model) {
 		model.addAttribute("name", "Demo Name");
