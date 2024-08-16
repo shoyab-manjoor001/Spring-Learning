@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Page</title>
+</head>
+<body>
+        <h1 th:text="'Value of names : ' + ${names}"></h1>
+        <h2>List of names using iteration</h2>
+        <Ul>
+            <li th:each=" n , status : ${names}">
+                <span th:text="${status.index+1} + ' ' + ${n}"></span>
+            </li>
+        </Ul>
+</body>
+</html>
