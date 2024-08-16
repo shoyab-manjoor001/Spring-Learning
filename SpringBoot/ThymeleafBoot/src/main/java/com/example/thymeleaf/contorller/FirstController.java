@@ -43,9 +43,17 @@ public class FirstController {
 		return "condition";
 	}
 
-	// Handler for including fragment..
+	// Handler for include/insert/replace fragment..
 	@RequestMapping(value = "/includeFragment", method = RequestMethod.GET)
 	public String includeFragmentHandler() {
 		return "includeFragment";
+	}
+
+	// hander for passing dynamic data to Fragment.
+	@RequestMapping(value = "/fragment", method = RequestMethod.GET)
+	public String fragmentHandler(Model model) {
+		model.addAttribute("title", "Demo Title");
+		model.addAttribute("subtitle", "Subtitle Demo");
+		return "fragment";
 	}
 }
