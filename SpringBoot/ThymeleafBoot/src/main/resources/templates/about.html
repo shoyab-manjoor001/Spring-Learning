@@ -9,5 +9,13 @@
     <h2 th:text="${#strings.toUpperCase(name)}"/>
     <h1>Length of the name is <span th:text="${ #strings.length(name)}" /></h1>
     <h3 th:text="${city}"/>
+    <h4 th:text="${#strings.toLowerCase(name)}"></h4>
+    <div th:with="a=53,b=32, n=${name}">
+        <!-- <h3><span th:text="'Sum of' + '${a}'+ 'and'+ '${b}' +'is' + '${a+b}' "></span></h3> -->
+         <h1>Value of a is <span th:text="${a}"></span></h1>
+         <h2>Value of b is <span th:text="${b}"></span></h2>
+         <h1>Sum of <span th:text="${a}"/> and <span th:text="${b}"/> is <span th:text="${a+b}"/></h1> 
+         <h3 th:text="'Addition of ' + ${a} + ' and ' + ${b} + ' = ' + ${a+b} "></h3>
+    </div>
 </body>
 </html>
