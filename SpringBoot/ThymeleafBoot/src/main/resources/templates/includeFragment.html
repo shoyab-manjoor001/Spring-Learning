@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Including Fragment</title>
+</head>
+<body>
+    <h1>This is replace/include/insert Fragment example</h1>
+    
+    <!-- We will replace Fragement here -->
+     <footer id="hostTag1" th:replace="footer::footer1"> </footer>
+
+    <!-- We will include Fragement here -->
+     <footer id="hostTag2" th:include="footer::footer2"> </footer>
+
+    <!-- We will insert Fragement here -->
+     <footer id="hostTag1" th:insert="footer::footer3">
+
+     </footer>
+</body>
+</html>

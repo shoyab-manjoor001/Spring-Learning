@@ -43,4 +43,9 @@ public class FirstController {
 		return "condition";
 	}
 
+	// Handler for including fragment..
+	@RequestMapping(value = "/includeFragment", method = RequestMethod.GET)
+	public String includeFragmentHandler() {
+		return "includeFragment";
+	}
 }
