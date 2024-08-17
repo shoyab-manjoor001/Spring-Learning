@@ -56,4 +56,12 @@ public class FirstController {
 		model.addAttribute("subtitle", "Subtitle Demo");
 		return "fragment";
 	}
+
+	// handler related to inheritence.
+	@RequestMapping(value = "/aboutnew", method = RequestMethod.GET)
+	public String inheritance(Model model) {
+		model.addAttribute("title", "Demo Title");
+		model.addAttribute("subtitle", "Subtitle Demo");
+		return "aboutnew";
+	}
 }
