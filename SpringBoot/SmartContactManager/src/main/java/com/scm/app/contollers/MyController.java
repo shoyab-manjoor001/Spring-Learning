@@ -3,9 +3,13 @@ package com.scm.app.contollers;
 import com.scm.app.entities.User;
 import com.scm.app.helper.Message;
 import com.scm.app.services.UserService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -65,13 +69,20 @@ public class MyController {
     }
 
     @PostMapping("/process_form")
-    public String registerUser(@ModelAttribute("user") User u1,
-            @RequestParam(defaultValue = "false") boolean agreement, Model model,
+    public String registerUser(@Valid @ModelAttribute("user") User u1,
+            @RequestParam(defaultValue = "false") boolean agreement, Model model, BindingResult bindingResult,
             RedirectAttributes redirectAttrs) {
+
         try {
             if (!agreement) {
                 System.out.println("You have not accepted Terms and Conditions.");
                 throw new Exception("You have not accepted Terms and Conditions");
+            }
+
+            if (bindingResult.hasErrors()) {
+                model.addAttribute("user", u1);
+                System.out.println("inside binding result");
+                return "signup";
             }
 
             // object coming from UI.

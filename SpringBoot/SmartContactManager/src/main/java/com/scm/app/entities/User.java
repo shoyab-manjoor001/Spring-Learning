@@ -2,6 +2,10 @@ package com.scm.app.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Column;
@@ -19,13 +23,25 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @NotBlank(message = "Name is required!!")
+    @Size(min = 2, max = 20, message = "min 2 and max 20 characters are allowed!!")
     private String name;
+
     @Column(unique = true)
+    @NotBlank(message = "Email is required!!")
+    @Email(message = "Please provide a valid email!!")
     private String email;
+
+    @NotBlank(message = "Password is required!!")
     private String password;
+
     private String role;
+
     private boolean enabled;
+
     private String imageUrl;
+
     @Column(length = 500)
     private String about;
 
