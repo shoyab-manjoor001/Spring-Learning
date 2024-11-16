@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{base::layout(~{::body})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Signup</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div 
+                class="col-md-8 offset-md-2 mt-2"
+                >
+
+                <!-- <div class="alert text-center"
+                     role="alert"
+                     th:if="${session.message}"
+                     th:classappend="${session.message.type}"
+                     >
+                    <p th:text="${session.message}"></p>
+
+                    <th:block th:text="${#session.removeAttribute('message
+                    ')}"></th:block>
+                </div> -->
+
+                <div class="alert text-center"
+                    role="alert"
+                    th:if="${message}" 
+                    th:classappend="${message.type}">
+                    <p th:text="${message.content}"></p>
+                </div>
+                
+           </div>
+           
+
+                <!-- Image containered -->
+                <div class="container text-center mt-3">
+                    <img 
+                        th:src="@{/img/registration.png}"
+                        style="height: 80px;" 
+                        alt="Registration image">
+                </div>
+
+                <div class="my-card">
+                    <h1 class="text-center">Registration Form</h1>
+
+                    <form th:action="@{/process_form}" method="post" th:object="${user}" novalidate>
+                        <div class="mb-3">
+                            <label for="name_input" class="form-label">Name</label>
+                            <input 
+                                name="name"
+                                type="text"
+                                class="form-control"
+                                id="name_input"
+                                placeholder="Enter Name"
+                                th:value="${user.name}"
+                                required
+                                >
+                          </div>
+
+                          <!-- <div class="mb-3" style="background-color: yellow;"> -->
+                        <div class="mb-3">
+                            <label for="email_input" class="form-label">Email</label>
+                            <input 
+                                name="email"
+                                type="email"
+                                class="form-control"
+                                id="email_input"
+                                placeholder="Enter Email"
+                                th:value="${user.email}"
+                                required
+                                >
+                          </div>
+
+                        <!-- <div class="mb-3" style="background-color: yellow;"> -->
+                        <div class="mb-3">
+                            <label for="password_input" class="form-label">Password</label>
+                            <input 
+                                name="password"
+                                type="password"
+                                class="form-control"
+                                id="password_input"
+                                placeholder="Enter Password"
+                                required
+                                >
+                          </div>
+                        <!-- <div class="mb-3" style="background-color: yellow;"> -->
+                        <div class="mb-3">
+                            <label for="about_input" class="form-label">About Yourself</label>
+                            <textarea 
+                                name="about" 
+                                id="about_input" 
+                                class="form-control"
+                                rows="4"
+                                placeholder="Describe Yourself"
+                                th:value="${user.about}"
+                                ></textarea>
+                          </div>
+
+                        <!-- Terms and Condition Agreement -->
+                          <div class="form-group form-check ">
+                            <input 
+                                type="checkbox" 
+                                id="checkbox_input" 
+                                class="form-check-inpput" 
+                                name="agreement"
+                                >
+                                <!-- required-->
+                                <label for="checkbox_input">I Agree to Terms And Conditions</label>
+                          </div>
+                          
+                          <!-- <div class="mb-3 text-center" style="background-color: blueviolet;"> -->
+                            <div class="mb-3 text-center">
+                            <button type="submit" class="bg-primary btn text-white">Submit</button>
+                             <button type="reset" class="btn-warning btn text-white">Reset</button>
+                          </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
