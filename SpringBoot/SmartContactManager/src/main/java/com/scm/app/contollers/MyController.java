@@ -7,6 +7,7 @@ import com.scm.app.services.UserService;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +21,9 @@ public class MyController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     // Handler for Home Page
     @GetMapping({ "/", "/index" })
@@ -70,10 +74,11 @@ public class MyController {
 
     @PostMapping("/process_form")
     public String registerUser(@Valid @ModelAttribute("user") User u1,
-            @RequestParam(defaultValue = "false") boolean agreement, Model model, BindingResult bindingResult,
-            RedirectAttributes redirectAttrs) {
+            @RequestParam(defaultValue = "false") boolean agreement, Model model,
+            RedirectAttributes redirectAttrs, BindingResult bindingResult) {
 
         try {
+
             if (!agreement) {
                 System.out.println("You have not accepted Terms and Conditions.");
                 throw new Exception("You have not accepted Terms and Conditions");
@@ -91,6 +96,7 @@ public class MyController {
             u1.setEnabled(true);
             u1.setRole("ROLE_USER");
             u1.setImageUrl("Default.png");
+            u1.setPassword(passwordEncoder.encode(u1.getPassword()));
 
             User u2 = userService.saveUser(u1);
 
