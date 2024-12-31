@@ -33,7 +33,7 @@ public class MyController {
     }
 
     // Handler for Login Page
-    @GetMapping("/login")
+    @GetMapping("/signin")
     public String loginPage(Model model) {
         model.addAttribute("title", "login page");
         return "login";
